@@ -1,5 +1,5 @@
 <template>
-  <div ref="tuiImageEditor" style="width: 100%;height: 100%;"></div>
+  <div ref="tuiImageEditor" class="tui-image-editor" style="width: 100%;height: 100%;"></div>
 </template>
 <script>
 import ImageEditor from 'tui-image-editor';
@@ -31,6 +31,8 @@ export default {
     let options = editorDefaultOptions;
     if (this.includeUi) {
       options = Object.assign(includeUIOptions, this.options);
+    } else {
+      options = Object.assign(options, this.options);
     }
     this.editorInstance = new ImageEditor(this.$refs.tuiImageEditor, options);
     this.addEventListener();
